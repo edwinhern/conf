@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dracula-theme.theme-dracula",
+    "DavidAnson.vscode-markdownlint",
+    "PKief.material-icon-theme",
+    "foxundermoon.shell-format",
+    "vivaxy.vscode-conventional-commits",
+    "christian-kohler.path-intellisense",
+    "streetsidesoftware.code-spell-checker",
+    "Gruntfuggly.todo-tree",
+    "eamodio.gitlens",
+    "adpyke.codesnap",
+    "fosshaas.fontsize-shortcuts",
+    "biomejs.biome"
+  ]
+}
