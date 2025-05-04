@@ -1,33 +1,68 @@
-# MacOS Setup
+# macOS Configuration
 
-## Description
+A centralized repository for my macOS development environment setup and configuration.
 
-### 1. Brew install
+## Project Structure
 
-```bash
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```txt
+.
+├── config/
+│   ├── brew/          # Homebrew configuration
+│   │   └── Brewfile   # List of Homebrew packages and casks
+│   ├── zsh/           # Zsh configuration
+│   │   └── .zshrc     # Zsh configuration file
+│   ├── fonts/         # Font configurations and installation scripts
+│   ├── vscode/        # VS Code settings and extensions
+│   └── scripts/       # Installation and setup scripts
+└── README.md          # This file
 ```
 
-### 2. Install Oh My Zsh
+## Setup Instructions
+
+### 1. Prerequisites
+
+- macOS (tested on macOS Ventura and later)
+- Git
+- Xcode Command Line Tools
+
+### 2. Installation
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/yourusername/macos-conf.git
+   cd macos-conf
+   ```
+
+2. Run the setup script:
+
+   ```bash
+   ./config/scripts/setup.sh
+   ```
+
+### 3. Manual Setup Steps
+
+#### Homebrew
 
 ```bash
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    open ~/.zshrc
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew bundle --file=config/brew/Brewfile
 ```
 
-### 3. Install Plugins
+#### Zsh and Oh My Zsh
 
 ```bash
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-    source ~/.zshrc
-```
+# Install Oh My Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-### 4. Install Powerlelevel10K
+# Install plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-- If font not installed, run `p10k configure` - should prompt to install font
+# Install Powerlevel10K theme
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 
-```bash
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
-    source ~/.zshrc
+# Link zsh configuration
+ln -s "$(pwd)/config/zsh/.zshrc" ~/.zshrc
+source ~/.zshrc
 ```

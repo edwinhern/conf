@@ -21,6 +21,7 @@ plugins=(
   docker-compose
   zsh-autosuggestions
   zsh-syntax-highlighting
+  zsh-bat
 )
 source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -30,8 +31,12 @@ alias o="open ."
 alias l="ls"
 alias ll="ls -al"
 alias update="brew update; brew upgrade; omz update; asdf plugin update --all"
-alias zshconfig="code ~/.zshrc"
-alias ohmyzsh="code ~/.oh-my-zsh"
+alias openzsh="code ~/.zshrc"
+alias openohmyzsh="code ~/.oh-my-zsh"
+
+# macOS
+alias port="lsof -i"
+alias stop="kill -9"
 
 if [[ -o interactive ]]; then
   fastfetch
